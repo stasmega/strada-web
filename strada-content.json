@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "en": [
+    {
+      "version": "0.8.5",
+      "changes": [
+        "You can now switch interface icons between Google and Hugeicons for free.",
+        "Added the Cyberpunk app icon.",
+        "Redesigned the Diamond transport icon.",
+        "Added Estonian language.",
+        "Minor bug fixes and UI improvements."
+      ]
+    }
+  ],
+  "et": [
+    {
+      "version": "0.8.5",
+      "changes": [
+        "Liidese ikoone saab tasuta vahetada Google'i ja Hugeiconsi vahel.",
+        "Lisatud on Cyberpunki rakenduseikoon.",
+        "Teemandi stiilis transpordiikoon on ümber kujundatud.",
+        "Lisatud on eesti keel.",
+        "Väiksemad veaparandused ja kasutajaliidese täiustused."
+      ]
+    }
+  ],
+  "ru": [
+    {
+      "version": "0.8.5",
+      "changes": [
+        "Набор иконок интерфейса можно бесплатно переключать между Google и Hugeicons.",
+        "Добавлена иконка приложения Cyberpunk.",
+        "Обновлён транспортный значок Diamond.",
+        "Добавлен эстонский язык.",
+        "Небольшие исправления ошибок и улучшения интерфейса."
+      ]
+    }
+  ],
+  "announcements": [
+    {
+      "id": "Fl9DegkhPdUYfq29RoDX",
+      "published": true,
+      "title": {
+        "et": "tere tere",
+        "en": "test announcement",
+        "ru": "тестовое оповещение"
+      },
+      "body": {
+        "ru": "Это тестовое сообщение для проверки работы оповещений, не обращайте внимание",
+        "en": "Strada test announcement text",
+        "et": "eestikeelne test tekst"
+      },
+      "publishedAt": "2026-10-30T21:54:00Z",
+      "expiresAt": "2026-11-03T19:00:00Z",
+      "actionLabel": "TLT",
+      "actionUrl": "https://tlt.ee/"
+    }
+  ],
+  "android": {
+    "versionCode": 1,
+    "versionName": "0.8.5",
+    "publishedAt": "2026-11-03T16:45:00Z",
+    "downloadUrl": "https://stasmega.github.io/strada-web/"
+  }
+}
