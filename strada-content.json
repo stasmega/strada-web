@@ -57,7 +57,7 @@
     }
     {
   "id": "winter-2026",
-  "published": false,
+  "published": true,
   "title": {"en": "News", "ru": "Новости", "et": "Uudised"},
   "body": {"en": "Announcement text", "ru": "Текст оповещения", "et": "Teate tekst"},
   "publishedAt": "2026-11-04T12:00:00Z",
