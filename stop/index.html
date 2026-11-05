@@ -1,85 +1,52 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Strada - Детали остановки</title>
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #F1F4F9;
-            color: #31343B;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            padding: 24.dp;
-            text-align: center;
-        }
-        .container {
-            background: white;
-            padding: 40px;
-            border-radius: 28px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-            max-width: 400px;
-        }
-        h1 {
-            color: #0A48FF;
-            margin-bottom: 8px;
-        }
-        p {
-            font-size: 16px;
-            line-height: 1.5;
-            color: #5F6368;
-        }
-        .btn {
-            display: inline-block;
-            background-color: #0A48FF;
-            color: white;
-            padding: 14px 28px;
-            border-radius: 16px;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 24px;
-            transition: background 0.2s;
-        }
-        .btn:hover {
-            background-color: #0032C7;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Strada</h1>
-        <p>Открываем информацию об остановке в приложении...</p>
-        <a id="app-link" href="#" class="btn">Открыть в Strada</a>
-    </div>
-
-    <script>
-        // Получаем stopId из query параметра ?id=123
-        const urlParams = new URLSearchParams(window.location.search);
-        const stopId = urlParams.get('id');
-
-        if (stopId) {
-            const deepLink = "strada://stop/" + stopId;
-            document.getElementById('app-link').href = deepLink;
-
-            // Автоматически пытаемся перенаправить в приложение
-            window.location.href = deepLink;
-
-            // Если через 2.5 секунды пользователь остался на странице, 
-            // значит приложение не установлено. Меняем текст на кнопке.
-            setTimeout(function() {
-                document.querySelector('p').innerHTML = "Похоже, приложение Strada не установлено на этом устройстве.";
-                const btn = document.getElementById('app-link');
-                btn.innerHTML = "Скачать Strada на GitHub";
-                btn.href = "https://github.com/StasMega/Strada"; // Укажи ссылку на скачивание APK
-            }, 2500);
-        } else {
-            document.querySelector('.container').innerHTML = "<h1>Ошибка</h1><p>ID остановки не указан в ссылке.</p>";
-        }
-    </script>
-</body>
-</html>
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Shared stop — Strada</title>
+<meta name="description" content="Open a stop shared from Strada to view its routes and departures in the app.">
+<meta name="theme-color" content="#f7f8fa">
+<link rel="canonical" href="https://stasmega.github.io/strada-web/stop/">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../assets/site.css">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Strada">
+<meta property="og:title" content="Shared stop — Strada">
+<meta property="og:description" content="Open a stop shared from Strada to view its routes and departures in the app.">
+<meta property="og:url" content="https://stasmega.github.io/strada-web/stop/">
+<meta property="og:image" content="https://stasmega.github.io/strada-web/assets/social.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Strada — public transport in Tallinn">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="noindex,follow"></head><body><a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+<nav class="wrap nav" aria-label="Main navigation">
+<a class="brand" href="../" aria-label="Strada home"><svg class="brand-mark" viewBox="0 0 28 32" aria-hidden="true">
+<path d="M23 3H11a6 6 0 0 0 0 12h6a7 7 0 0 1 0 14H5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="23" cy="3" r="3" fill="currentColor"/><circle cx="5" cy="29" r="3" fill="currentColor"/></svg>Strada</a>
+<div class="nav-links"><a href="../#features">The app</a><a href="../#about">About Strada</a><a href="mailto:support.strada@gmail.com">Support</a><a class="button small" href="https://play.google.com/store/apps/details?id=com.stasmega.strada">Google Play <span aria-hidden="true">↗</span></a></div>
+<details class="mobile-menu"><summary>Menu</summary>
+<div class="menu-panel"><a href="../#features">The app</a><a href="../#about">About Strada</a><a href="mailto:support.strada@gmail.com">Support</a><a href="https://play.google.com/store/apps/details?id=com.stasmega.strada">Google Play ↗</a></div></details>
+</nav></header>
+<main id="main" class="wrap">
+<section class="stop-page">
+<p class="eyebrow"><span class="stop-mark" aria-hidden="true"></span>Shared stop / Strada</p>
+<h1>Your next stop</h1>
+<p id="stop-description">Open this shared stop in Strada to see its routes and departures.</p>
+<div class="actions"><a class="button" id="app-link" hidden>Open in Strada</a><a class="text-link" href="https://play.google.com/store/apps/details?id=com.stasmega.strada">Get Strada on Google Play <span aria-hidden="true">↗</span></a></div>
+<p class="status" id="stop-status">If you already have Strada installed, use the button to open the stop. Otherwise, install the app first.</p><noscript>
+<p>Enable JavaScript to open this stop in the app. You can also find it by searching in Strada.</p></noscript></section></main><script src="../assets/stop.js" defer></script>
+<footer class="site-footer">
+<div class="wrap">
+<div class="footer-top">
+<div class="footer-brand"><a class="brand" href="../"><svg class="brand-mark" viewBox="0 0 28 32" aria-hidden="true">
+<path d="M23 3H11a6 6 0 0 0 0 12h6a7 7 0 0 1 0 14H5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="23" cy="3" r="3" fill="currentColor"/><circle cx="5" cy="29" r="3" fill="currentColor"/></svg>Strada</a>
+<p>A closer look at Tallinn’s transport</p></div>
+<ul class="footer-links">
+<li><a href="../privacy/">Privacy Policy</a></li>
+<li><a href="../terms/">Terms of Service</a></li>
+<li><a href="../delete-account/">Delete account</a></li>
+<li><a href="mailto:support.strada@gmail.com">Contact</a></li>
+<li><a href="https://github.com/stasmega/Strada">GitHub</a></li></ul></div>
+<div class="footer-bottom">
+<p>© 2026 Strada · An independent project by StasMega</p>
+<p>Not affiliated with Tallinn’s transport operators</p></div></div></footer></body></html>
