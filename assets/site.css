@@ -97,7 +97,7 @@ figure {
   background:var(--page)
 }
 .nav {
-  min-height:80px;
+  min-height:72px;
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -118,8 +118,8 @@ figure {
   color:var(--blue)
 }
 .brand-image {
-  width:44px;
-  height:44px;
+  width:36px;
+  height:36px;
   object-fit:contain;
   flex-shrink:0;
 }
