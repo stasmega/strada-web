@@ -35,11 +35,12 @@ Accessibility, metadata and motion guidance was also reviewed from the user-supp
 
 - The Google Play button intentionally targets `com.stasmega.strada`. The owner confirmed the app has not yet been published. A public listing is required before that link can open the app page. GitHub APK releases remain available as a secondary path.
 - Support and privacy contact: `support.strada@gmail.com`, matching the Android feedback address and confirmed by the owner.
-- The published app documents use the existing English Privacy Policy and Terms from the active `Strada2` project, effective 3 November 2026. The website-hosting section and external deletion instructions supplement those documents. Address search and journey calculation are local; optional analytics is disabled until consent. The public Android repository and old `Strada` workspace are older than the active app.
+- The published app documents use the English Privacy Policy and Terms from the active `Strada2` project, updated 5 November 2026 for optional email/password accounts. The website-hosting section and external deletion instructions supplement those documents. Address search and journey calculation are local; optional analytics is disabled until consent. The public Android repository and old `Strada` workspace are older than the active app.
 - The external deletion path is an email request. The owner must monitor the inbox, verify ownership and remove both the Firebase Authentication user and the Firestore `users/{uid}` record while respecting the deletion marker used to prevent stale sessions from recreating the account. The active app already provides in-app deletion and clears personal data on the requesting device.
 - The app already displays bundled legal documents and optional analytics controls. Keep the app and website documents consistent when updating either. Publishing this site does not change Firebase, its rules or Analytics settings.
 - Confirm the production Analytics retention configuration. The site does not change that configuration or guarantee Google Play approval.
 - Preserve `strada-content.json` and `.well-known/assetlinks.json`: the app consumes the former and the latter contains Android link association data.
+- The owner supplied five current screenshots and `stradalogolue.png`. All five screenshots are displayed, including the journey planner. The original transparent logo replaces the temporary route glyph in navigation and the footer. Web assets retain their content and are resized to suit their displayed dimensions.
 
 ## Sources checked
 
