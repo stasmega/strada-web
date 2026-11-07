@@ -4,10 +4,10 @@ const fs = require('node:fs');
 const vm = require('node:vm');
 const source = fs.readFileSync(require('node:path').join(__dirname, '../assets/stop.js'), 'utf8');
 
-function render(search, userAgent = 'Firefox Desktop') {
+function render(search, userAgent = 'Firefox Desktop', language = 'en') {
   const elements = Object.fromEntries(['app-link', 'stop-description', 'stop-status', 'stop-title'].map(id =>
     [id, { hidden: true, textContent: '', removeAttribute(key) { delete this[key]; } }]));
-  const document = { title: '', getElementById: id => elements[id] };
+  const document = { title: '', documentElement: {lang: language}, getElementById: id => elements[id] };
   vm.runInNewContext(source, { window: { location: { search } }, navigator: { userAgent }, document, URLSearchParams });
   return { elements, document };
 }
@@ -16,6 +16,19 @@ test('the existing ID-only links keep working', () => {
   const { elements } = render('?id=tlt_14969');
   assert.equal(elements['app-link'].href, 'strada://stop/tlt_14969');
   assert.equal(elements['app-link'].hidden, false);
+});
+
+test('localized stops retain metadata and show localized errors and instructions', () => {
+  for (const [lang, label, error] of [['ru','Код остановки: ','В ссылке нет'],['et','Peatuse kood: ','Lingil puudub']]) {
+    const {elements,document} = render('?id=tlt_14969&name=Estonia&code=123','Firefox Desktop',lang);
+    assert.equal(elements['app-link'].href,'strada://stop/tlt_14969?name=Estonia&code=123');
+    assert.ok(elements['stop-status'].textContent.startsWith(label+'123'));
+    assert.equal(elements['stop-title'].textContent,'Estonia');
+    assert.match(document.title,/Strada/);
+    const invalid=render('?id=a&id=b','Firefox Desktop',lang);
+    assert.equal(invalid.elements['app-link'].hidden,true);
+    assert.ok(invalid.elements['stop-description'].textContent.startsWith(error));
+  }
 });
 test('GTFS punctuation and public stop metadata survive the web-to-app handoff', () => {
   const input = new URLSearchParams({ id: 'elron_123:4.5', name: 'Tõnismägi & <north>', code: '12405-1', lat: '59.43', lon: '24.74', train: 'true' });
