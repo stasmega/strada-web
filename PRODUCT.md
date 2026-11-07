@@ -1,6 +1,6 @@
 # Strada
 
-Strada is an independent Android app by StasMega for public transport journeys in Tallinn. Existing features include a vehicle map, stop departures, route details, favourites, optional location, stop and route search, and journey planning. Transport data includes Tallinn's feeds and Elron; live data may be delayed. The app is free of ads.
+Strada is an independent Android app by splin.dev for public transport journeys in Tallinn. Existing features include a vehicle map, stop departures, route details, favourites, optional location, stop and route search, and journey planning. Transport data includes Tallinn's feeds and Elron; live data may be delayed. The app is free of ads.
 
 ## Landing page
 
