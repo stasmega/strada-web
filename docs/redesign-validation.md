@@ -11,3 +11,7 @@
 - Independent visual review of full desktop and mobile captures returned `ship`, with no material findings. Review scope: screenshots and changed source, not a second browser test.
 
 No build step or new runtime dependencies. Existing legal pages, shared-stop code, Android association and application content feed are unchanged. Verification used desktop browser viewport sizes, not physical Android hardware. Google Play and mail links retain the existing destinations; no store installation or email submission was performed.
+
+## Language addition
+
+English, Estonian and Russian now cover six routes each, including `/home/`. All 10 Node tests pass, including localized stop errors/metadata and all local links. Browser checks cover 45 combinations: three languages, five distinct page types, and 320/768/1440px. No horizontal overflow remains after adapting long policy headings and narrow header layouts. Language selection, route preservation, shared-stop parameters and fragments, and explicit return to English were exercised. Choosing a language uses local browser storage only; the website privacy paragraph documents this. Original app screenshots remain unchanged. This is a translation of the supplied documents, without independent legal review.

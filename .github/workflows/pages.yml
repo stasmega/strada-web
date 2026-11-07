@@ -25,13 +25,15 @@ jobs:
       - uses: actions/checkout@v4
         with:
           persist-credentials: false
+      - name: Generate language pages
+        run: node tools/localize.cjs
       - name: Test stop handler and Google verification
         run: node --test tests/*.test.cjs
       - name: Prepare static website
         run: |
           mkdir _site
-          cp index.html _site/
-          cp -r assets home stop privacy terms delete-account .well-known _site/
+          cp index.html sitemap.xml _site/
+          cp -r assets home stop privacy terms delete-account et ru .well-known _site/
           shopt -s nullglob
           for verification in google*.html; do
             cp "$verification" _site/
