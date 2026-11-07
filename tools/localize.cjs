@@ -1,6 +1,6 @@
 const fs = require('node:fs');
 const path = require('node:path');
-const crypto = require('node:crypto');
+const fingerprint = require('./legal-fingerprint.cjs');
 const ui = require('../locales/ui.cjs');
 const legal = require('../locales/legal.cjs');
 const root = path.resolve(__dirname, '..');
@@ -19,7 +19,7 @@ const legalSource=JSON.parse(fs.readFileSync(legalSourcePath,'utf8'));
 for(const route of Object.keys(legal)) {
   const html=fs.readFileSync(fileFor('en',route),'utf8');
   const article=html.match(/<article\b[^>]*>([\s\S]*?)<\/article>/)[1];
-  const hash=crypto.createHash('sha256').update(article).digest('hex');
+  const hash=fingerprint(article);
   if(process.argv.includes('--update-legal-source')) legalSource[route]=hash;
   else if(legalSource[route]!==hash) throw new Error(`${route}: English legal content changed. Update both translations, then run with --update-legal-source.`);
 }
