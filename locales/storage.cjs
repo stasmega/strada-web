@@ -1,25 +1,25 @@
 module.exports = {
   en: {
-    title: 'Cookies and site storage',
+    title: 'We use cookies, believe it or not.',
     body: 'No analytics or advertising cookies. With your permission, Strada remembers your language on this browser. Your choice stays here too.',
-    accept: 'Remember my language',
-    necessary: 'Only necessary',
+    accept: 'Wonderful',
+    necessary: "I'll take only the necessary",
     privacy: 'How we use storage',
     settings: 'Cookie settings'
   },
   et: {
-    title: 'Küpsised ja saidiandmed',
+    title: 'Kasutamine küpsised, uskuge või mitte.',
     body: 'Ei mingit analüütikat ega reklaamiküpsiseid. Sinu loal jätab Strada selles brauseris keelevaliku meelde. Ka see valik salvestatakse ainult siin.',
-    accept: 'Jäta keel meelde',
+    accept: 'Tore',
     necessary: 'Ainult vajalik',
     privacy: 'Kuidas andmeid salvestame',
     settings: 'Küpsiste seaded'
   },
   ru: {
-    title: 'Cookies и данные сайта',
+    title: 'Мы используем cookies, хотите верьте хотите нет',
     body: 'Без аналитики и рекламных cookies. С вашего разрешения Strada запомнит язык в этом браузере. Этот выбор тоже сохранится только здесь.',
-    accept: 'Запоминать язык',
-    necessary: 'Только необходимое',
+    accept: 'Чудесно',
+    necessary: 'Пожалуй, только необходимое',
     privacy: 'Как мы храним данные',
     settings: 'Настройки cookies'
   }
