@@ -8,10 +8,10 @@ module.exports = {
     settings: 'Cookie settings'
   },
   et: {
-    title: 'Kasutamine küpsised, uskuge või mitte.',
+    title: 'Kasutame küpsiseid, uskuge või mitte.',
     body: 'Ei mingit analüütikat ega reklaamiküpsiseid. Sinu loal jätab Strada selles brauseris keelevaliku meelde. Ka see valik salvestatakse ainult siin.',
     accept: 'Tore',
-    necessary: 'Ainult vajalik',
+    necessary: 'Ainult vajalikud',
     privacy: 'Kuidas andmeid salvestame',
     settings: 'Küpsiste seaded'
   },
