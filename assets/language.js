@@ -13,11 +13,11 @@
       target.search = location.search;
       target.hash = location.hash;
       link.href = target.href;
-      try {localStorage.setItem('strada-language',link.dataset.language);} catch {}
+      window.stradaStorage?.rememberLanguage(link.dataset.language);
     });
   });
   try {
-    const preference = localStorage.getItem('strada-language');
+    const preference = window.stradaStorage?.language();
     // An explicit localized URL wins over the saved preference.
     if (current==='en' && (preference==='ru'||preference==='et')) {
       const target = new URL(preference+'/'+route,base);

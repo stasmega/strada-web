@@ -24,7 +24,9 @@
 <link rel="alternate" hreflang="ru" href="https://stasmega.github.io/strada-web/ru/privacy/">
 <link rel="alternate" hreflang="x-default" href="https://stasmega.github.io/strada-web/privacy/">
 <link rel="stylesheet" href="../../assets/language.css?v=20261108">
-<script src="../../assets/language.js?v=20261108" defer></script>
+<link rel="stylesheet" href="../../assets/storage.css?v=20261109">
+<script src="../../assets/storage.js?v=20261109" defer></script>
+<script src="../../assets/language.js?v=20261109" defer></script>
 <!-- /language -->
 </head><body><a class="skip" href="#main">Liigu põhisisu juurde</a>
 <header class="site-header">
@@ -65,8 +67,8 @@
 <p>Google’iga sisselogimise asemel saad konto luua ka e-posti aadressi ja parooliga. Firebase Authentication töötleb e-posti aadressi, parooli ja sisselogimisandmeid; Strada ei salvesta parooli Firestore’i, eelistustesse, salvestatud kasutajaliidese olekusse, analüütikasse ega logidesse. Kontoseansse haldab Firebase. Parooli lähtestamise taotlus saadab e-posti aadressi Firebase’ile, mis saadab vajaduse korral lähtestamislingi. Seda kasutatakse soovitud konto pakkumiseks ja kaitsmiseks. Pilvelemmikud ja Strada+ on seotud sama Firebase UID-ga ning neile kehtivad eespool kirjeldatud konto, säilitamise ja kustutamise reeglid. Paroolikonto rakenduses kustutamisel tuleb Google’i konto valimise asemel uuesti sisestada kehtiv parool. Kustutamist saab taotleda ka <a href="../delete-account/">konto kustutamise lehel</a> või aadressil support@stradaapp.eu.</p>
 <h2>E-posti aadressi kinnitamine</h2>
 <p>E-posti aadressi kinnitamine: e-posti ja parooliga loodud konto omanik peab enne pilvelemmikute või Strada+ kasutamist kinnitama aadressi Firebase’i kinnituslingiga. Firebase saadab kinnituskirju konto loomisel või sinu kordussaatmise taotlusel ning töötleb konto turvalisuse tagamiseks e-posti aadressi ja kinnituse olekut. Enne kinnitamist saad kasutada külalisfunktsioone, välja logida või ootel konto kustutada. Lingi avamine uuendab kinnituse olekut; rakendusse naastes värskendab Strada seansi.</p>
-<h2>9. See veebisait</h2>
-<p>Seda veebisaiti teenindab majutuspakkuja, kes saab lehtede edastamiseks vajaliku võrguinfo, sealhulgas IP-aadressid. Strada lehed ei kasuta analüütikaskripte, reklaamijälgijaid, jälgimisküpsiseid, sisselogimisvorme ega kolmanda osapoole fonditeenuseid. Välise lingi avamisel liigud teenusesse, millel on oma privaatsustavad. E-posti lingid avavad mustandi ega saada kirju automaatselt. Veebisait salvestab sinu keelevaliku kohapeal brauserisse; seda eelistust ei saadeta analüütikateenusesse.</p>
+<h2 id="website-storage">9. See veebisait</h2>
+<p>Seda veebisaiti teenindab majutuspakkuja, kes saab lehtede edastamiseks vajaliku võrguinfo, sealhulgas IP-aadressid. Strada lehed ei kasuta analüütikaskripte, reklaamijälgijaid, jälgimisküpsiseid, sisselogimisvorme ega kolmanda osapoole fonditeenuseid. Välise lingi avamisel liigud teenusesse, millel on oma privaatsustavad. E-posti lingid avavad mustandi ega saada kirju automaatselt. Veebisait kasutab küpsiste asemel brauseri kohalikku salvestusruumi, et jätta meelde sinu salvestusvalik. Ainult valikuga „Jäta keel meelde” salvestatakse ka keel järgmisteks külastusteks. „Ainult vajalik” eemaldab salvestatud keele; keelelingid töötavad jooksva külastuse ajal edasi. Neid valikuid ei saadeta analüütikateenusesse. Valikut saad muuta jaluse „Küpsiste seaded” kaudu või mõlemad valikud kustutada brauseris selle saidi andmeid eemaldades.</p>
 <p>Kontot või andmeid puudutava kustutamistaotluse esitamiseks väljaspool rakendust järgi <a href="../delete-account/">konto kustutamise juhiseid</a>.</p>
 <p>Teenusepakkujate teave: <a href="https://firebase.google.com/support/privacy">Firebase’i privaatsus ja turvalisus</a>, <a href="https://policies.google.com/privacy">Google’i privaatsuspoliitika</a>. Privaatsuskontakt: <a href="mailto:support@stradaapp.eu">support@stradaapp.eu</a>.</p></article></main>
 <footer class="site-footer">
@@ -82,4 +84,12 @@
 </ul></div>
 <div class="footer-bottom">
 <p>© 2026 Strada · splin.devi sõltumatu projekt</p>
-<p>Ei ole seotud Tallinna ühistranspordiettevõtetega</p></div></div></footer></body></html>
+<p>Ei ole seotud Tallinna ühistranspordiettevõtetega</p></div></div><!-- language:storage-settings --><div class="storage-settings-row"><button type="button" class="storage-settings" data-storage-settings hidden>Küpsiste seaded</button></div><!-- /language --></footer><!-- language:storage -->
+<section class="storage-notice" data-storage-notice aria-labelledby="storage-title" aria-describedby="storage-description" hidden>
+<div class="storage-notice-header"><span class="storage-notice-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 3.5 6.5v5.8c0 4.1 3.5 7.2 8.5 9.2 5-2 8.5-5.1 8.5-9.2V6.5Z"/><path d="m8 12 2.5 2.5L16 9"/></svg></span><h2 id="storage-title">Küpsised ja saidiandmed</h2></div>
+<p id="storage-description">Ei mingit analüütikat ega reklaamiküpsiseid. Sinu loal jätab Strada selles brauseris keelevaliku meelde. Ka see valik salvestatakse ainult siin.</p>
+<a class="storage-privacy" href="./#website-storage">Kuidas andmeid salvestame</a>
+<div class="storage-actions"><button type="button" class="storage-necessary" data-storage-necessary>Ainult vajalik</button><button type="button" class="storage-accept" data-storage-accept>Jäta keel meelde</button></div>
+</section>
+<!-- /language -->
+</body></html>

@@ -3,6 +3,7 @@ const path = require('node:path');
 const fingerprint = require('./legal-fingerprint.cjs');
 const ui = require('../locales/ui.cjs');
 const legal = require('../locales/legal.cjs');
+const storage = require('../locales/storage.cjs');
 const root = path.resolve(__dirname, '..');
 const origin = 'https://stasmega.github.io/strada-web/';
 const routes = ['', 'home', 'privacy', 'terms', 'delete-account', 'stop'];
@@ -82,7 +83,7 @@ for (const route of routes) {
     html=html.replace(/(<meta property="og:url" content=")[^"]+/, '$1'+pageUrl(lang));
     const alternate=languages.map(l=>`<link rel="alternate" hreflang="${l}" href="${pageUrl(l)}">`).join('\n');
     const asset=rel(dir,path.join(root,'assets'));
-    const extras=`<!-- language:head -->\n${alternate}\n<link rel="alternate" hreflang="x-default" href="${pageUrl('en')}">\n<link rel="stylesheet" href="${asset}/language.css?v=20261108">\n<script src="${asset}/language.js?v=20261108" defer></script>\n<!-- /language -->\n`;
+    const extras=`<!-- language:head -->\n${alternate}\n<link rel="alternate" hreflang="x-default" href="${pageUrl('en')}">\n<link rel="stylesheet" href="${asset}/language.css?v=20261108">\n<link rel="stylesheet" href="${asset}/storage.css?v=20261109">\n<script src="${asset}/storage.js?v=20261109" defer></script>\n<script src="${asset}/language.js?v=20261109" defer></script>\n<!-- /language -->\n`;
     html=html.replace('</head>',extras+'</head>');
     const controls=languages.map(l=>{
       let href=rel(dir,path.dirname(fileFor(l,route)))+'/';
@@ -90,6 +91,19 @@ for (const route of routes) {
     }).join('');
     const switcher=`<!-- language:switch --><div class="language-switch" role="group" aria-label="${{en:'Language',et:'Keel',ru:'Язык'}[lang]}">${controls}</div><!-- /language -->`;
     html=html.replace('<details class="mobile-menu">',switcher+'<details class="mobile-menu">');
+    const copy=storage[lang];
+    const policy=rel(dir,path.dirname(fileFor(lang,'privacy'))) + '/#website-storage';
+    const notice=`<!-- language:storage -->
+<section class="storage-notice" data-storage-notice aria-labelledby="storage-title" aria-describedby="storage-description" hidden>
+<div class="storage-notice-header"><span class="storage-notice-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 3.5 6.5v5.8c0 4.1 3.5 7.2 8.5 9.2 5-2 8.5-5.1 8.5-9.2V6.5Z"/><path d="m8 12 2.5 2.5L16 9"/></svg></span><h2 id="storage-title">${copy.title}</h2></div>
+<p id="storage-description">${copy.body}</p>
+<a class="storage-privacy" href="${policy}">${copy.privacy}</a>
+<div class="storage-actions"><button type="button" class="storage-necessary" data-storage-necessary>${copy.necessary}</button><button type="button" class="storage-accept" data-storage-accept>${copy.accept}</button></div>
+</section>
+<!-- /language -->
+`;
+    const settings=`<!-- language:storage-settings --><div class="storage-settings-row"><button type="button" class="storage-settings" data-storage-settings hidden>${copy.settings}</button></div><!-- /language -->`;
+    html=html.replace('</footer>',settings+'</footer>').replace('</body>',notice+'</body>');
     fs.mkdirSync(dir,{recursive:true});
     fs.writeFileSync(file,html);
   }

@@ -2,6 +2,12 @@
 
 Static public website and shared-stop handler for Strada, hosted on GitHub Pages.
 
+The storage notice follows Strada's rounded cards and blue controls in EN, ET and RU.
+It saves the visitor's choice locally. Language persistence is opt-in; “Only necessary”
+removes a saved language. Cookie settings in every footer reopens the choice.
+The site does not load analytics or advertising scripts. The source image
+`stradalogo_main_preview.png` is copied unchanged to the root of the Pages artifact.
+
 - [Website](https://stasmega.github.io/strada-web/)
 - [Privacy Policy](https://stasmega.github.io/strada-web/privacy/)
 - [Terms of Service](https://stasmega.github.io/strada-web/terms/)

@@ -1,0 +1,19 @@
+.storage-notice[hidden]{display:none!important}
+.storage-notice{position:fixed;z-index:50;left:24px;bottom:24px;width:min(480px,calc(100% - 48px));max-height:calc(100dvh - 48px);overflow:auto;padding:24px;border:1px solid #dce1eb;border-radius:28px;background:#f5f7fc;color:#17202d;box-shadow:0 8px 32px #17202d1a;font-family:Manrope,"Segoe UI",sans-serif}
+.storage-notice-header{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.storage-notice-icon{display:grid;place-items:center;width:42px;height:42px;flex:none;border-radius:14px;background:#e1e9ff;color:#1048ed}
+.storage-notice-icon svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.storage-notice h2{font-size:20px;font-weight:600;line-height:1.3;letter-spacing:-.02em;margin:0;text-wrap:balance}
+.storage-notice p{font-size:14px;line-height:1.65;color:#4c5868;margin:0 0 10px}
+.storage-privacy{display:inline-block;min-height:44px;padding:10px 0;font-size:13px;line-height:24px;color:#1048ed;text-decoration:underline;text-underline-offset:3px}
+.storage-actions{display:flex;gap:10px;margin-top:10px}
+.storage-actions button{flex:1;min-width:0;min-height:48px;padding:12px 14px;border:1px solid #1048ed;border-radius:24px;font:600 13px/1.5 Manrope,"Segoe UI",sans-serif;cursor:pointer;text-align:center}
+.storage-necessary{background:transparent;color:#1048ed}
+.storage-accept{background:#1048ed;color:#fff}
+.storage-necessary:hover{background:#e7edfc}
+.storage-accept:hover{background:#0737c4}
+.storage-notice a:focus-visible,.storage-notice button:focus-visible,.storage-settings:focus-visible{outline:3px solid #1048ed;outline-offset:4px}
+.storage-settings-row{width:min(1200px,calc(100% - 64px));margin:8px auto 0;padding-bottom:20px}
+.site-footer.wrap .storage-settings-row{width:100%}
+.storage-settings{min-height:44px;padding:8px 0;border:0;background:none;color:var(--muted,#626e7e);font:inherit;font-size:13px;text-decoration:underline;text-underline-offset:4px;cursor:pointer}
+@media(max-width:620px){.storage-notice{left:12px;bottom:max(12px,env(safe-area-inset-bottom));width:calc(100% - 24px);max-height:calc(100dvh - 36px);padding:20px;border-radius:24px}.storage-notice h2{font-size:19px}.storage-actions{flex-direction:column}.storage-actions button{flex:auto;width:100%;font-size:14px}.storage-settings-row{width:calc(100% - 40px)}}

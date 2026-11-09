@@ -24,7 +24,9 @@
 <link rel="alternate" hreflang="ru" href="https://stasmega.github.io/strada-web/ru/privacy/">
 <link rel="alternate" hreflang="x-default" href="https://stasmega.github.io/strada-web/privacy/">
 <link rel="stylesheet" href="../assets/language.css?v=20261108">
-<script src="../assets/language.js?v=20261108" defer></script>
+<link rel="stylesheet" href="../assets/storage.css?v=20261109">
+<script src="../assets/storage.js?v=20261109" defer></script>
+<script src="../assets/language.js?v=20261109" defer></script>
 <!-- /language -->
 </head><body><a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
@@ -65,8 +67,8 @@
 <p>You may also create an account with an email address and password instead of Google sign-in. Firebase Authentication processes the email, password and sign-in credentials; Strada does not store your password in Firestore, preferences, saved UI state, analytics or logs. Account sessions are managed by Firebase. A password-reset request sends the email address to Firebase, which sends a reset link if applicable. This is used to provide and secure the account you request. Cloud favourites and Strada+ are associated with the same Firebase UID and follow the account, retention and deletion rules above. For password accounts, in-app deletion requires re-entering the current account password rather than selecting a Google account. You can also request deletion on the <a href="../delete-account/">account-deletion page</a> or by emailing support@stradaapp.eu.</p>
 <h2>Email verification</h2>
 <p>Email verification: email/password accounts must verify ownership through a Firebase verification link before cloud favourites or Strada+ can be accessed. Firebase sends verification emails in response to account creation or your resend request and processes the email address and verification state for account security. Until verification, you can use guest features, sign out or delete the pending account. Opening the link updates your verification state; Strada refreshes the session when you return.</p>
-<h2>9. This website</h2>
-<p>This website is served by a hosting provider, which receives the network information needed to serve pages, including IP addresses. The Strada pages do not use analytics scripts, advertising trackers, tracking cookies, sign-in forms or third-party font services. Following an external link takes you to that service, whose own privacy practices apply. Email links open a draft; they do not send messages automatically. The website stores your chosen language locally in your browser; this preference is not sent to an analytics service.</p>
+<h2 id="website-storage">9. This website</h2>
+<p>This website is served by a hosting provider, which receives the network information needed to serve pages, including IP addresses. The Strada pages do not use analytics scripts, advertising trackers, tracking cookies, sign-in forms or third-party font services. Following an external link takes you to that service, whose own privacy practices apply. Email links open a draft; they do not send messages automatically. The website uses browser local storage, rather than cookies, to remember your storage choice. Only if you choose &quot;Remember my language&quot; does it also save your language for future visits. Choosing &quot;Only necessary&quot; removes the saved language; language links still work for the current visit. These choices are not sent to an analytics service. You can change your choice through &quot;Cookie settings&quot; in the footer, or remove both choices by clearing this site's browser data.</p>
 <p>For account or data-deletion requests outside the app, follow the <a href="../delete-account/">account-deletion instructions</a>.</p>
 <p>Provider information: <a href="https://firebase.google.com/support/privacy">Firebase privacy and security</a>, <a href="https://policies.google.com/privacy">Google Privacy Policy</a>. Privacy contact: <a href="mailto:support@stradaapp.eu">support@stradaapp.eu</a>.</p></article></main>
 <footer class="site-footer">
@@ -82,4 +84,12 @@
 </ul></div>
 <div class="footer-bottom">
 <p>© 2026 Strada · An independent project by splin.dev</p>
-<p>Not affiliated with Tallinn’s transport operators</p></div></div></footer></body></html>
+<p>Not affiliated with Tallinn’s transport operators</p></div></div><!-- language:storage-settings --><div class="storage-settings-row"><button type="button" class="storage-settings" data-storage-settings hidden>Cookie settings</button></div><!-- /language --></footer><!-- language:storage -->
+<section class="storage-notice" data-storage-notice aria-labelledby="storage-title" aria-describedby="storage-description" hidden>
+<div class="storage-notice-header"><span class="storage-notice-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 3.5 6.5v5.8c0 4.1 3.5 7.2 8.5 9.2 5-2 8.5-5.1 8.5-9.2V6.5Z"/><path d="m8 12 2.5 2.5L16 9"/></svg></span><h2 id="storage-title">Cookies and site storage</h2></div>
+<p id="storage-description">No analytics or advertising cookies. With your permission, Strada remembers your language on this browser. Your choice stays here too.</p>
+<a class="storage-privacy" href="./#website-storage">How we use storage</a>
+<div class="storage-actions"><button type="button" class="storage-necessary" data-storage-necessary>Only necessary</button><button type="button" class="storage-accept" data-storage-accept>Remember my language</button></div>
+</section>
+<!-- /language -->
+</body></html>
