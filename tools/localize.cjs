@@ -63,6 +63,7 @@ for (const route of routes) {
       return `${name}="${escape(dictionaries[lang].get(value))}"`;
     });
     html=html.replace('<html lang="en">',`<html lang="${lang}">`);
+    html=html.replaceAll('google-play-badge-en.svg',`google-play-badge-${lang}.svg`);
     // Resolve source-relative URLs, then express them relative to the new page.
     html=html.replace(/\b(href|src)="([^"#]+)"/g,(match,attr,url)=>{
       if (/^(?:[a-z][a-z\d+.-]*:|\/\/)/i.test(url)) return match;
@@ -83,7 +84,7 @@ for (const route of routes) {
     html=html.replace(/(<meta property="og:url" content=")[^"]+/, '$1'+pageUrl(lang));
     const alternate=languages.map(l=>`<link rel="alternate" hreflang="${l}" href="${pageUrl(l)}">`).join('\n');
     const asset=rel(dir,path.join(root,'assets'));
-    const extras=`<!-- language:head -->\n${alternate}\n<link rel="alternate" hreflang="x-default" href="${pageUrl('en')}">\n<link rel="stylesheet" href="${asset}/language.css?v=20261108">\n<link rel="stylesheet" href="${asset}/storage.css?v=20261109">\n<script src="${asset}/storage.js?v=20261109" defer></script>\n<script src="${asset}/language.js?v=20261109" defer></script>\n<!-- /language -->\n`;
+    const extras=`<!-- language:head -->\n${alternate}\n<link rel="alternate" hreflang="x-default" href="${pageUrl('en')}">\n<link rel="stylesheet" href="${asset}/language.css?v=20261108">\n<link rel="stylesheet" href="${asset}/play-badge.css?v=20261109">\n<link rel="stylesheet" href="${asset}/storage.css?v=20261109">\n<script src="${asset}/storage.js?v=20261109" defer></script>\n<script src="${asset}/language.js?v=20261109" defer></script>\n<!-- /language -->\n`;
     html=html.replace('</head>',extras+'</head>');
     const controls=languages.map(l=>{
       let href=rel(dir,path.dirname(fileFor(l,route)))+'/';

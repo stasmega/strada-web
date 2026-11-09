@@ -1,0 +1,7 @@
+.play-badge{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;max-width:100%;padding:0;border:0;border-radius:8px;background:transparent;color:inherit;text-decoration:none;line-height:0}
+.play-badge img{display:block;width:202px;max-width:100%;height:auto;aspect-ratio:238.96/70.87;object-fit:contain}
+.play-badge.nav-download img,.play-badge-small img{width:162px}
+.play-badge:focus-visible{outline:3px solid var(--blue,#1048ed);outline-offset:5px}
+.play-badge:hover{opacity:.9}
+.menu-panel .play-badge{display:inline-flex;padding:0;margin:12px 0}
+@media(max-width:620px){.actions .play-badge img{width:202px}.play-badge{max-width:100%}}
