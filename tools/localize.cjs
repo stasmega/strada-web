@@ -8,7 +8,7 @@ const origin = 'https://stasmega.github.io/strada-web/';
 const routes = ['', 'home', 'privacy', 'terms', 'delete-account', 'stop'];
 const languages = ['en', 'et', 'ru'];
 const labels = {en:'English', et:'Eesti', ru:'Русский'};
-const unchanged = new Set(['Strada','Google Play','Google Play ↗','Kristiine keskus','Lennujaam','support.strada@gmail.com','↗','.',',']);
+const unchanged = new Set(['Strada','Google Play','Google Play ↗','Kristiine keskus','Lennujaam','support@stradaapp.eu','↗','.',',']);
 const dictionaries = Object.fromEntries(languages.map((lang,i) => [lang,new Map(ui.map(row=>[row[0],row[i]]))]));
 const escape = s => s.replaceAll('&','&amp;').replaceAll('"','&quot;');
 const rel = (from,to) => path.relative(from,to).replaceAll('\\','/') || '.';

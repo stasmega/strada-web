@@ -33,7 +33,7 @@ test('localized policy documents retain all sections and paragraphs',()=>{
     for(const lang of ['et','ru']){
       const html=fs.readFileSync(path.join(root,lang,route,'index.html'),'utf8');
       for(const tag of ['p','h2','li']) assert.equal([...article(html).matchAll(new RegExp('<'+tag+'\\b','g'))].length,[...article(en).matchAll(new RegExp('<'+tag+'\\b','g'))].length,lang+'/'+route+'/'+tag);
-      assert.ok(html.includes('support.strada@gmail.com'));
+      assert.ok(html.includes('support@stradaapp.eu'));
       assert.ok(!article(html).includes('Effective date:'));
     }
   }
