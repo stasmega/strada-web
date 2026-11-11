@@ -32,7 +32,7 @@ jobs:
       - name: Prepare static website
         run: |
           mkdir _site
-          cp index.html sitemap.xml stradalogo_main_preview.png _site/
+          cp index.html sitemap.xml stradalogo_main_preview.png favicon.ico _site/
           cp -r assets home stop privacy terms delete-account et ru .well-known _site/
           shopt -s nullglob
           for verification in google*.html; do
