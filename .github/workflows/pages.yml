@@ -40,9 +40,21 @@ jobs:
           done
           touch _site/.nojekyll
       - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v4
+      # upload-pages-artifact excludes dot-directories, including Android's .well-known.
+      # Keep the standard Pages tar format while retaining the domain association.
+      - name: Archive website with Android App Links
+        run: |
+          test -s _site/.well-known/assetlinks.json
+          tar --dereference --hard-dereference --directory _site \
+            --exclude=.git --exclude=.github \
+            -cvf "$RUNNER_TEMP/artifact.tar" .
+          tar -tf "$RUNNER_TEMP/artifact.tar" ./.well-known/assetlinks.json
+      - uses: actions/upload-artifact@v4
         with:
-          path: _site
+          name: github-pages
+          path: ${{ runner.temp }}/artifact.tar
+          retention-days: 1
+          if-no-files-found: error
       - name: Publish website
         id: deployment
         uses: actions/deploy-pages@v5
