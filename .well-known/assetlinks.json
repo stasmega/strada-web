@@ -1,14 +1,17 @@
 [
   {
     "relation": [
-      "delegate_permission/common.handle_all_urls"
+      "delegate_permission/common.handle_all_urls",
+      "delegate_permission/common.get_login_creds"
     ],
     "target": {
       "namespace": "android_app",
       "package_name": "com.stasmega.strada",
       "sha256_cert_fingerprints": [
         "83:C4:AD:F9:A8:F1:2C:7F:E0:DA:82:CC:85:B9:DF:76:9F:D4:67:B3:2C:B5:E7:4B:58:EF:A3:1D:49:05:DD:9C",
-        "65:02:83:EB:D7:6A:AB:A4:4C:09:5D:F1:9C:5E:05:F9:1E:CA:86:09:7C:31:24:6D:6E:7E:0E:0C:0A:19:FF:DB"
+        "65:02:83:EB:D7:6A:AB:A4:4C:09:5D:F1:9C:5E:05:F9:1E:CA:86:09:7C:31:24:6D:6E:7E:0E:0C:0A:19:FF:DB",
+        "53:D6:CB:68:D9:BA:4B:BE:46:74:AC:9A:41:44:ED:0A:23:02:C8:6E:ED:F8:67:59:F4:03:F2:77:EE:47:4D:3D",
+        "B8:87:00:C7:94:77:40:E8:91:A6:DB:62:0F:EB:39:77:85:0A:48:FF:62:1B:1E:94:4B:00:A4:6D:18:A2:BE:5F"
       ]
     }
   }
