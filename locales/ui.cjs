@@ -1,5 +1,6 @@
 // Each entry contains the original English text, Estonian, then Russian.
 module.exports = [
+...['title','description'].map(key=>['en','et','ru'].map(lang=>require('./seo.cjs')[lang][key])),
 ['Buses, trams and more.','Bussid, trammid ja palju muud.','Автобусы, трамваи и не только.'],
 ['Strada — Tallinn, one stop ahead','Strada — Tallinn, üks peatus ees','Strada — Таллин, на остановку впереди'],
 ['Skip to content','Liigu põhisisu juurde','Перейти к содержимому'],

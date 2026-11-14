@@ -8,10 +8,10 @@ removes a saved language. Cookie settings in every footer reopens the choice.
 The site does not load analytics or advertising scripts. The source image
 `stradalogo_main_preview.png` is copied unchanged to the root of the Pages artifact.
 
-- [Website](https://stasmega.github.io/strada-web/)
-- [Privacy Policy](https://stasmega.github.io/strada-web/privacy/)
-- [Terms of Service](https://stasmega.github.io/strada-web/terms/)
-- [Account deletion](https://stasmega.github.io/strada-web/delete-account/)
+- [Website](https://stradaapp.eu/)
+- [Privacy Policy](https://stradaapp.eu/privacy/)
+- [Terms of Service](https://stradaapp.eu/terms/)
+- [Account deletion](https://stradaapp.eu/delete-account/)
 
 No build step, runtime dependencies, tracking scripts or third-party font requests. Manrope is hosted locally in `assets/fonts/` under the included SIL Open Font License. Serve the repository with `node tools/preview.cjs` and open `http://127.0.0.1:4173`.
 
@@ -22,3 +22,16 @@ English pages are the source templates. After editing them or translations in `l
 Legal source fingerprints prevent silently reusing translations after changing an English document. After updating both legal translations to match an intentional source change, acknowledge it with `node tools/localize.cjs --update-legal-source`.
 
 `home/index.html` retains the old homepage URL. `stop/?id=…` opens a shared stop through `strada://stop/…`. Keep `.well-known/assetlinks.json` and the in-app `strada-content.json` feed intact.
+
+Search metadata and visible FAQ answers are maintained in `locales/seo.cjs`.
+The generator adds localized `MobileApplication` JSON-LD with one app identity,
+Google Play links, the separate developer identity and the free download offer.
+It keeps canonical URLs, social images, language alternatives and sitemap URLs
+on `https://stradaapp.eu/`. `robots.txt` points to that sitemap and is included
+in the Pages artifact. No ratings are invented. The FAQ uses native disclosures
+and works without JavaScript. Regenerate pages after changing these facts.
+
+After publishing, submit `https://stradaapp.eu/sitemap.xml` in the domain's Google
+Search Console property and inspect `/`, `/et/` and `/ru/`. Search Console access
+is needed to verify indexing; source validation alone cannot establish it.
+Structured data and content improvements do not guarantee AI Overview placement.
