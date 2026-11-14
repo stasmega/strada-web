@@ -17,11 +17,15 @@
   Cookie-notice source copy is aligned with the existing main-page wording so
   regeneration does not restore older consent-button labels.
 - `node tools/localize.cjs`: passed, all translations covered.
-- `node --test tests/*.test.cjs`: 22 passed, including existing stop, storage,
+- `node --test tests/*.test.cjs`: 23 passed, including existing stop, storage,
   legal and Google verification checks and the new search-metadata checks.
 - Browser preview: EN and RU on a narrow viewport, ET on a desktop viewport;
   answers open correctly and language switching preserves `#faq`. Desktop
   document width does not exceed the viewport.
+- Main pages explicitly declare the existing 64x64 PNG favicon, with the ICO
+  fallback accurately labelled 32x32. Live GET checks returned HTTP 200 for the
+  home page and all three favicon formats. Search-result refresh remains under
+  Google's control and may require a homepage recrawl.
 
 After merge/deployment, use Search Console to submit the sitemap and inspect
 the three main language URLs. Those account actions were not performed here.

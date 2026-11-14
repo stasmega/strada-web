@@ -9,6 +9,21 @@ const languages=['en','et','ru'];
 const routes=['','home','privacy','terms','delete-account','stop'];
 const read=file=>fs.readFileSync(path.join(root,file),'utf8');
 
+test('main pages declare a crawlable PNG favicon with its actual dimensions',()=>{
+ const icon=fs.readFileSync(path.join(root,'assets/favicon.png'));
+ assert.equal(icon.readUInt32BE(16),64);
+ assert.equal(icon.readUInt32BE(20),64);
+ for(const lang of languages) for(const route of ['','home/']) {
+  const page=(lang==='en'?'':lang+'/')+route+'index.html';
+  const html=read(page);
+  const head=html.match(/<head>([\s\S]*?)<\/head>/)[1];
+  const tag=head.match(/<link rel="icon" href="([^"]+)" type="image\/png" sizes="64x64">/);
+  assert.ok(tag,page);
+  assert.equal(path.resolve(root,path.dirname(page),tag[1]),path.join(root,'assets/favicon.png'));
+  assert.ok(!head.includes('sizes="any"'),page);
+ }
+});
+
 test('canonical, sharing and reciprocal language URLs use the custom domain',()=>{
  for(const lang of languages) for(const route of routes) {
   const page=(lang==='en'?'':lang+'/')+(route?route+'/':'');
