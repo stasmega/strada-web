@@ -13,7 +13,7 @@
   --blue-hover:#0737c4;
   --max:1200px;
   color-scheme:light;
-  font-family:"Segoe UI",-apple-system,BlinkMacSystemFont,Arial,sans-serif;
+  font-family:Onest,"Segoe UI",-apple-system,BlinkMacSystemFont,Arial,sans-serif;
   font-synthesis:none;
   font-weight:400;
   color:var(--ink);
@@ -203,14 +203,6 @@ figure {
   align-items:center;
   gap:12px
 }
-.stop-mark {
-  display:inline-block;
-  width:12px;
-  height:12px;
-  border:3px solid var(--blue);
-  border-radius:50%;
-  flex-shrink:0
-}
 .hero h1 {
   margin-bottom:24px
 }
@@ -339,14 +331,6 @@ figure {
   object-fit:cover;
   border-radius:16px;
   box-shadow:0 8px 24px #17202d0d
-}
-.feature-note {
-  border-left:2px solid var(--blue);
-  padding-left:16px;
-  margin-top:24px;
-  font-size:14px;
-  line-height:1.6;
-  color:var(--secondary)
 }
 .commute {
   background:var(--paper);
@@ -574,7 +558,7 @@ figure {
   overflow-wrap:anywhere
 }
 .callout {
-  border-left:3px solid var(--blue);
+  border-radius:12px;
   padding:4px 24px;
   margin-block:32px;
   background:var(--raised)

@@ -13,7 +13,7 @@ The site does not load analytics or advertising scripts. The source image
 - [Terms of Service](https://stradaapp.eu/terms/)
 - [Account deletion](https://stradaapp.eu/delete-account/)
 
-No build step, runtime dependencies, tracking scripts or third-party font requests. Manrope is hosted locally in `assets/fonts/` under the included SIL Open Font License. Serve the repository with `node tools/preview.cjs` and open `http://127.0.0.1:4173`.
+No build step, runtime dependencies, tracking scripts or third-party font requests. Onest (text) and Unbounded (headings) are hosted locally as Latin, Latin Extended and Cyrillic WOFF2 subsets in `assets/fonts/` under the included SIL Open Font Licenses; `assets/fonts.css` is the shared type layer for every page. Serve the repository with `node tools/preview.cjs` and open `http://127.0.0.1:4173`.
 
 The landing page uses `assets/landing.css` and `assets/landing.js`; legal and shared-stop pages keep `assets/site.css`. The feature selector progressively enhances real anchor links: all screenshots remain available without JavaScript. Motion respects reduced-motion preferences.
 
