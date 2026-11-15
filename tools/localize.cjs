@@ -4,8 +4,9 @@ const fingerprint = require('./legal-fingerprint.cjs');
 const ui = require('../locales/ui.cjs');
 const legal = require('../locales/legal.cjs');
 const storage = require('../locales/storage.cjs');
+const seo = require('../locales/seo.cjs');
 const root = path.resolve(__dirname, '..');
-const origin = 'https://stasmega.github.io/strada-web/';
+const origin = 'https://stradaapp.eu/';
 const routes = ['', 'home', 'privacy', 'terms', 'delete-account', 'stop'];
 const languages = ['en', 'et', 'ru'];
 const labels = {en:'English', et:'Eesti', ru:'Русский'};
@@ -38,7 +39,7 @@ for (const route of routes) {
       if (value === undefined) { failures.push(`${lang}/${route}: ${key}`); return text; }
       return text.replace(key,value);
     };
-    let html = original;
+    let html = original.replaceAll('https://stasmega.github.io/strada-web/', origin);
     // Paragraphs with embedded links are translated as complete units.
     // Mask them while translating the remaining original English text nodes.
     const paragraphSlots = [];
@@ -84,7 +85,35 @@ for (const route of routes) {
     html=html.replace(/(<meta property="og:url" content=")[^"]+/, '$1'+pageUrl(lang));
     const alternate=languages.map(l=>`<link rel="alternate" hreflang="${l}" href="${pageUrl(l)}">`).join('\n');
     const asset=rel(dir,path.join(root,'assets'));
-    const extras=`<!-- language:head -->\n${alternate}\n<link rel="alternate" hreflang="x-default" href="${pageUrl('en')}">\n<link rel="stylesheet" href="${asset}/language.css?v=20261108">\n<link rel="stylesheet" href="${asset}/play-badge.css?v=20261109">\n<link rel="stylesheet" href="${asset}/storage.css?v=20261109">\n<script src="${asset}/storage.js?v=20261109" defer></script>\n<script src="${asset}/language.js?v=20261109" defer></script>\n<!-- /language -->\n`;
+    const isLanding=route==='';
+    const copySeo=seo[lang];
+    let searchHead='';
+    if(isLanding || route==='home') {
+      html=html.replace(/<title>[^<]*<\/title>/,`<title>${escape(copySeo.title)}</title>`)
+        .replace(/(<meta name="description" content=")[^"]*/, '$1'+escape(copySeo.description))
+        .replace(/(<meta property="og:title" content=")[^"]*/, '$1'+escape(copySeo.title))
+        .replace(/(<meta property="og:description" content=")[^"]*/, '$1'+escape(copySeo.description));
+      const app={
+        '@context':'https://schema.org', '@type':'MobileApplication',
+        '@id':origin+'#app', name:'Strada', alternateName:'Strada — Tallinn Public Transport',
+        url:origin, mainEntityOfPage:pageUrl(lang), operatingSystem:'Android',
+        applicationCategory:'TravelApplication', inLanguage:['en','et','ru'],
+        description:copySeo.description, image:origin+'assets/screenshots/map-overview.png',
+        downloadUrl:'https://play.google.com/store/apps/details?id=com.stasmega.strada',
+        sameAs:['https://play.google.com/store/apps/details?id=com.stasmega.strada'],
+        author:{'@type':'Person','@id':origin+'#developer',name:'splin.dev',url:'https://github.com/stasmega'},
+        offers:{'@type':'Offer',price:'0',priceCurrency:'EUR'}
+      };
+      searchHead=`<script type="application/ld+json">${JSON.stringify(app).replaceAll('<','\\u003c')}</script>\n`;
+    }
+    if(isLanding) {
+      html=html.replace(/(<p class="hero-description">)[\s\S]*?(<\/p>)/, '$1'+escape(copySeo.description)+'$2');
+      const questions=copySeo.questions.map(([question,answer])=>`<details><summary>${escape(question)}</summary><p>${escape(answer)}</p></details>`).join('\n');
+      const faq=`<!-- language:faq -->\n<section class="faq wrap" id="faq" aria-labelledby="faq-title"><h2 id="faq-title">${escape(copySeo.heading)}</h2><div class="faq-list">${questions}</div></section>\n<!-- /language -->\n`;
+      html=html.replace('<section class="download"',faq+'<section class="download"');
+      searchHead+=`<link rel="stylesheet" href="${asset}/faq.css?v=20261114">\n`;
+    }
+    const extras=`<!-- language:head -->\n${alternate}\n<link rel="alternate" hreflang="x-default" href="${pageUrl('en')}">\n${searchHead}<link rel="stylesheet" href="${asset}/language.css?v=20261108">\n<link rel="stylesheet" href="${asset}/play-badge.css?v=20261109">\n<link rel="stylesheet" href="${asset}/storage.css?v=20261115">\n<script src="${asset}/storage.js?v=20261109" defer></script>\n<script src="${asset}/language.js?v=20261109" defer></script>\n<!-- /language -->\n`;
     html=html.replace('</head>',extras+'</head>');
     const controls=languages.map(l=>{
       let href=rel(dir,path.dirname(fileFor(l,route)))+'/';

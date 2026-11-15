@@ -1,5 +1,6 @@
 // Each entry contains the original English text, Estonian, then Russian.
 module.exports = [
+...['title','description'].map(key=>['en','et','ru'].map(lang=>require('./seo.cjs')[lang][key])),
 ['Buses, trams and more.','Bussid, trammid ja palju muud.','Автобусы, трамваи и не только.'],
 ['Strada — Tallinn, one stop ahead','Strada — Tallinn, üks peatus ees','Strada — Таллин, на остановку впереди'],
 ['Skip to content','Liigu põhisisu juurde','Перейти к содержимому'],
@@ -8,10 +9,13 @@ module.exports = [
 ['Tallinn.','Tallinn.','Таллин.'],['One stop','Üks peatus','На остановку'],['ahead.','ees.','впереди.'],
 ['Your bus. Your tram. Your way home.','Sinu buss. Sinu tramm. Sinu kodutee.','Твой автобус. Твой трамвай. Твой путь домой.'],
 ['See the city’s public transport come together in one simple app.','Kogu linna ühistransport ühes lihtsas rakenduses.','Весь городской транспорт в одном простом приложении.'],
-['Take a closer look','Vaata lähemalt','Посмотреть ближе'],['Made for Android. Free of ads.','Androidile. Ilma reklaamideta.','Для Android. Без рекламы.'],['Tallinn, Estonia','Tallinn, Eesti','Таллин, Эстония'],
-['A little closer to your next ride.','Järgmine sõit on veidi lähemal.','Чуть ближе к следующей поездке.'],['The city moves.','Linn liigub.','Город в движении.'],['Move with it.','Liigu koos linnaga.','Двигайся вместе с ним.'],
-['Buses','Bussid','Автобусы'],['Trams','Trammid','Трамваи'],['Trains','Rongid','Поезда'],['All together. In Strada.','Kõik koos. Stradas.','Всё вместе. В Strada.'],
-['Less guessing.','Vähem oletamist.','Меньше догадок.'],['More going.','Rohkem liikumist.','Больше движения.'],['A quick look before you leave.','Kiire pilk enne väljumist.','Один взгляд перед выходом.'],['A better picture of what’s coming.','Selgem pilt saabuvatest sõidukitest.','Сразу понятно, что скоро приедет.'],
+['Take a closer look','Vaata lähemalt','Посмотреть ближе'],['Tallinn, Estonia','Tallinn, Eesti','Таллин, Эстония'],
+
+['Live positions and timetables for','Reaalajas asukohad ja sõiduplaanid:','Транспорт онлайн и расписания:'],['Tallinn, Harjumaa and Elron','Tallinn, Harjumaa ja Elron','Таллин, Харьюмаа и Elron'],
+['Check your trip before you head out','Vaata sõit üle enne, kui välja lähed','Проверь поездку, прежде чем выйти из дома'],['The map, your stop and the route: the three screens you’ll open most.','Kaart, sinu peatus ja liin: kolm vaadet, mida avad kõige sagedamini.','Карта, твоя остановка и маршрут — три экрана, которые ты будешь открывать чаще всего.'],
+['Plan the whole journey','Planeeri kogu teekond','Планируй весь путь'],['An independent project','Sõltumatu projekt','Независимый проект'],['Get Strada for Android','Laadi Strada Androidile','Strada для Android'],['Free on Google Play. No ads.','Tasuta Google Plays. Reklaamideta.','Бесплатно в Google Play. Без рекламы.'],
+['Buses','Bussid','Автобусы'],['Trams','Trammid','Трамваи'],['Trains','Rongid','Поезда'],
+
 ['See your ride on the map','Leia oma sõiduk kaardilt','Найди свой транспорт на карте'],
 ['Find vehicles across Tallinn. Switch between buses, trams and trains, then tap to see where they’re heading.','Leia sõidukid üle Tallinna. Vali bussid, trammid või rongid ja puuduta sõidukit, et näha selle sihtkohta.','Следи за транспортом по всему Таллину. Выбери автобусы, трамваи или поезда и нажми на транспорт, чтобы узнать, куда он едет.'],
 ['Know what’s coming next','Vaata järgmisi väljumisi','Узнай, что приедет следующим'],
@@ -19,7 +23,7 @@ module.exports = [
 ['Follow the whole route','Vaata kogu liini','Посмотри весь маршрут'],
 ['See the stops ahead and upcoming arrival information. Save the routes you use most for the next trip home.','Vaata eesolevaid peatusi ja saabumisinfot. Salvesta sagedamini kasutatavad liinid järgmiseks koduteeks.','Смотри следующие остановки и время прибытия. Сохрани привычные маршруты для следующей поездки домой.'],
 ['Vehicle positions depend on operator data. Live information may be delayed.','Sõidukite asukohad sõltuvad vedaja andmetest. Reaalajainfo võib hilineda.','Положение транспорта зависит от данных перевозчика. Обновления могут задерживаться.'],
-['From here.','Siit.','Отсюда.'],['To wherever','Sinna, kuhu','Туда, куда'],['today takes you.','päev sind viib.','позовёт этот день.'],
+
 ['Choose your destination. Compare public transport journeys and walking routes, with transfers and departure times along the way.','Vali sihtkoht. Võrdle ühistranspordisõite ja jalgsiteekondi koos ümberistumiste ning väljumisaegadega.','Выбери пункт назначения. Сравни поездки на транспорте и пешие маршруты с пересадками и временем отправления.'],
 ['Plan your journey with Strada','Planeeri teekond Stradaga','Построй маршрут в Strada'],
 ['Small details.','Väikesed detailid.','Маленькие детали.'],['Everyday difference.','Iga päev abiks.','Удобнее каждый день.'],['For the familiar commute.','Igapäevaseks teekonnaks.','Для привычной дороги.'],['And the occasional change of plans.','Ja ootamatuteks plaanimuutusteks.','И неожиданных перемен в планах.'],
@@ -28,10 +32,10 @@ module.exports = [
 ['Your next stop,','Järgmine peatus,','Следующая остановка —'],['a little closer.','veidi lähemal.','чуть ближе.'],
 ['Find stops near you with optional location access. Explore at your own pace.','Leia lähedal asuvad peatused, kui lubad asukoha kasutamise. Avasta omas tempos.','Найди остановки рядом, разрешив доступ к местоположению по желанию. Исследуй город в своём ритме.'],
 ['A name. A number.','Nimi. Number.','Название. Номер.'],['You’re on your way.','Ja teekond võib alata.','И ты уже в пути.'],['Search for a stop or route without panning across the map.','Otsi peatust või liini ilma kaarti liigutamata.','Ищи остановку или маршрут, не перемещаясь по карте.'],
-['One independent app.','Sõltumatu rakendus.','Независимое приложение.'],['A city we share.','Meie ühine linn.','Наш общий город.'],['Built for the journeys that make Tallinn yours.','Teekondadeks, mis teevad Tallinnast sinu linna.','Для поездок, с которыми Таллин становится твоим.'],
+
 ['Strada is a personal project by splin.dev, made for everyday public transport journeys in Tallinn. An Android app, free of ads.','Strada on splin.devi isiklik projekt igapäevasteks ühistranspordisõitudeks Tallinnas. Androidi rakendus ilma reklaamideta.','Strada — личный проект splin.dev для ежедневных поездок по Таллину. Приложение для Android без рекламы.'],
 ['Transport information comes from public sources, including Tallinn’s transport feeds and Elron. Always check operator notices for service changes.','Transpordiinfo pärineb avalikest allikatest, sealhulgas Tallinna transpordiandmetest ja Elronilt. Muudatuste kohta kontrolli alati vedajate teateid.','Информация о транспорте поступает из открытых источников, включая данные Таллина и Elron. Всегда проверяй сообщения перевозчиков об изменениях.'],
-['Say hello','Võta ühendust','Написать нам'],['Your next ride.','Sinu järgmine sõit.','Следующая поездка.'],['Within reach.','Käeulatuses.','Уже рядом.'],['Strada for Android. Made for Tallinn.','Strada Androidile. Loodud Tallinna jaoks.','Strada для Android. Создано для Таллина.'],
+['Say hello','Võta ühendust','Написать нам'],
 ['Privacy','Privaatsus','Конфиденциальность'],['Terms','Tingimused','Условия'],['Delete account','Kustuta konto','Удалить аккаунт'],['Contact','Kontakt','Контакты'],
 ['© 2026 Strada. An independent project by splin.dev.','© 2026 Strada. splin.devi sõltumatu projekt.','© 2026 Strada. Независимый проект splin.dev.'],
 ['Not affiliated with Tallinn’s transport operators.','Ei ole seotud Tallinna ühistranspordiettevõtetega.','Не связано с транспортными операторами Таллина.'],
