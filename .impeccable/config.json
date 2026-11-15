@@ -1,0 +1,36 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "et/home/index.html",
+          "et/index.html",
+          "home/index.html",
+          "index.html",
+          "ru/home/index.html",
+          "ru/index.html"
+        ],
+        "createdAt": "2026-11-15T09:15:54.670Z",
+        "reason": "Claude: full-bleed section backgrounds; inner .wrap and padding-block provide the inset, verified in render at 375px and 1440px"
+      },
+      {
+        "rule": "dark-glow",
+        "value": "*",
+        "files": [
+          "et/home/index.html",
+          "et/index.html",
+          "home/index.html",
+          "index.html",
+          "ru/home/index.html",
+          "ru/index.html"
+        ],
+        "createdAt": "2026-11-15T09:15:54.808Z",
+        "reason": "Claude: phone elevation shadow has 35px y-offset and soft blur, tinted from the blue section surface, not a zero-offset halo"
+      }
+    ]
+  }
+}

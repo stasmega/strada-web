@@ -113,7 +113,7 @@ for (const route of routes) {
       html=html.replace('<section class="download"',faq+'<section class="download"');
       searchHead+=`<link rel="stylesheet" href="${asset}/faq.css?v=20261114">\n`;
     }
-    const extras=`<!-- language:head -->\n${alternate}\n<link rel="alternate" hreflang="x-default" href="${pageUrl('en')}">\n${searchHead}<link rel="stylesheet" href="${asset}/language.css?v=20261108">\n<link rel="stylesheet" href="${asset}/play-badge.css?v=20261109">\n<link rel="stylesheet" href="${asset}/storage.css?v=20261109">\n<script src="${asset}/storage.js?v=20261109" defer></script>\n<script src="${asset}/language.js?v=20261109" defer></script>\n<!-- /language -->\n`;
+    const extras=`<!-- language:head -->\n${alternate}\n<link rel="alternate" hreflang="x-default" href="${pageUrl('en')}">\n${searchHead}<link rel="stylesheet" href="${asset}/language.css?v=20261108">\n<link rel="stylesheet" href="${asset}/play-badge.css?v=20261109">\n<link rel="stylesheet" href="${asset}/storage.css?v=20261115">\n<script src="${asset}/storage.js?v=20261109" defer></script>\n<script src="${asset}/language.js?v=20261109" defer></script>\n<!-- /language -->\n`;
     html=html.replace('</head>',extras+'</head>');
     const controls=languages.map(l=>{
       let href=rel(dir,path.dirname(fileFor(l,route)))+'/';
